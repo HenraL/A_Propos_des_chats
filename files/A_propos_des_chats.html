@@ -18,7 +18,7 @@
 	
 	
     </head>
-    <body>
+    <body id="top">
         <!-- <anim js> -->
         <script>
                 $(document).ready(function() {
@@ -44,17 +44,90 @@
         </script>
         <!-- <css général> -->
         <style>
-                /* @font-face {
-                    font-family: 'opendyslexic-bold';
-                    src: url('https://www.dropbox.com/s/zcjvnmkbpzsowg7/opendyslexic-bold.eot?dl=0') format('embedded-opentype'),
-                        url('https://www.dropbox.com/s/5b6r471zwjqjq7d/opendyslexic-bold.woff?dl=0') format('woff'),
-                        /* url('https://www.dropbox.com/s/2ehu5b4klv6x4ef/opendyslexic-bold.woff2?dl=0') format('woff2'), */
-                        /*url('https://www.dropbox.com/s/nqxyyr1l922b3xr/opendyslexic-bold.ttf?dl=0') format('truetype'),*/
-                        /*url('https://www.dropbox.com/s/9t7vzcdkd2mekhm/opendyslexic-bold.svg?dl=0') format('svg');*/
-                /*} */
-                /* header{
-                    background-color: azure;
-                } */
+                root{
+                    --bacckground:rgb(239, 255, 196);
+                }
+                #big{
+                    font-size:xx-large;
+                    font-weight: bolder;
+                }
+                #tagImg{
+                    background-color:snow;
+                    border-radius:15px;
+                    width:30px;
+                    height:30px;
+                }
+                #tag{
+                    border:outset 3px gold;
+                    width:30px;
+                    height:30px;
+                    font-size:40px;
+                    font-weight:bold;
+                    color:gold;
+                    background-color:black;
+                    margin:3px;
+                }
+                #tag:hover{
+                    border:inset gold 3px;
+                    margin:3px;
+                }
+                .a{
+                    text-decoration:none;
+                    cursor:pointer;
+                }
+                #dot{
+                    color:black;
+                }
+                .imgcatinatub{
+                    background-image: url('data:image/webp;base64,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');
+                    /*width: ;
+                    height: ; */
+                }
+                .howto{
+                    background-color: rgb(239, 255, 196);
+                    padding: 10px;
+                }
+                .linkpage{
+                    color: blue;
+                }
+                .how{
+                    color:black;
+                    text-decoration: none;
+                }
+                .division{
+                    color:black;
+                }
+                .division:hover, .linkpage:hover, .how:hover{
+                    font-style: italic;
+                    color: red;
+                    background-color: aliceblue;
+                    box-shadow: 5px 2px 3px black;
+                }
+                .division:active, .linkpage:active, .how:active{
+                    color: green;
+                }
+                .HOWW, .cure, .shrooms, .end{
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                .HOWW{
+                    color:cadetblue;
+                }
+                .cure{
+                    color: brown;
+                }
+                .shrooms{
+                    color:chocolate;
+                }
+                .end{
+                    color: slateblue;
+                }
+                .HOWW:hover, .cure:hover, .shrooms:hover, .end:hover{
+                    font-style: italic;
+                    background-color: aliceblue;
+                    box-shadow: 5px 2px 3px black;
+                }
+                
         </style>
         <!-- img data, base 64 -->
         <style>
@@ -71,396 +144,622 @@
                 <div class="menu-sidebar">
                     <ul class="ul_s" class="menu">
                         <li class="li_s"><a class="summary" href="#top"><p class=".sommaire"><h1><B><U>Sommaire</U></B></h1></p></a></li>
+                        <li class="li_s"><a class="summary" href="#Howto">Fonctionnement du sommaire</a></li>
                         <li class="li_s" class="menu-item-has-children"><a class="summary" href="#Comment">Comment</a>
                             <span class="sidebar-menu-arrow"></span>
                             <ul class="ul_s" class="sub-menu">
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#en_général">nourrir</a>
+                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#cure">soigner</a>
                                     <span class="sidebar-menu-arrow"></span>
                                     <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">savoir</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">soigner</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">calculer</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">aider</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">retrouver</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">déménager</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">déparasiter</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">sont</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">laver</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">nettoyer</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">éviter</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">apprendre</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">reconnaître</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">rassurer</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">protéger</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">détendre</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">dresser</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">communiquer</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">promener</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">gronder</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">récompenser</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">préparer</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">nourrir</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">traiter</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">rendre</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">s'occuper</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">éduquer</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">faire</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">empêcher</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">élever</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">couper</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">prendre</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_xp"></a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_vist">Pour windows Vista</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_7">Pour windows 7 et 8</a></li>
-                                        <li class="li_s"><a class="summary" href="#pour_le_système_win_10">Pour windows 8.1 et 10</a></li>
-                                    </ul>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#pour_le_système">fabriquer</a></li>
-                                <li class="li_s"><a class="summary" href="#pour_le_système">laisser</a></li>
-                            </ul>
-                        </li>
-                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#nav_web">A</a>
-                            <span class="sidebar-menu-arrow"></span>
-                            <ul class="ul_s" class="sub-menu">
-                                <li class="li_s"><a class="summary" href="#Chrome">quelle fréquence</a></li>
-                                <li class="li_s"><a class="summary" href="#ff">quel âge</a></li>
-                            </ul>
-                        </li>
-                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#nav_web">Quels</a>
-                            <span class="sidebar-menu-arrow"></span>
-                            <ul class="ul_s" class="sub-menu">
-                                <li class="li_s"><a class="summary" href="#Chrome">sont les chats les plus affectueux</a></li>
-                                <li class="li_s"><a class="summary" href="#ff">sont les meilleurs jouets pour les chats</a></li>
-                                <li class="li_s"><a class="summary" href="#Safari">sont les chats qui perdent le moins de poils</a></li>
-                                <li class="li_s"><a class="summary" href="#ff">sont les aliments mauvais pour le chat</a></li>
-                                <li class="li_s"><a class="summary" href="#ff">sont les noms les plus drôles pour les chats</a></li>
-                                <li class="li_s"><a class="summary" href="#ff">sont les chats les plus calmes</a></li>
-                            </ul>
-                        </li>
-                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#nav_web">Que</a>
-                            <span class="sidebar-menu-arrow"></span>
-                            <ul class="ul_s" class="sub-menu">
-                                <li class="li_s"><a class="summary" href="#Chrome">faire si mon chat a des vers</a></li>
-                                <li class="li_s"><a class="summary" href="#ff">faire quand un chat boite</a></li>
-                                <li class="li_s"><a class="summary" href="#Safari">faire si mon chat a la diarrhée</a></li>
-                                <li class="li_s"><a class="summary" href="#edge">faire si votre chat ne veut pas manger</a></li>
-                                <li class="li_s"><a class="summary" href="#IE">faire de mon chat pendant les vacances</a></li>
-                            </ul>
-                        </li>
-                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#nav_web">Pourquoi</a>
-                            <span class="sidebar-menu-arrow"></span>
-                            <ul class="ul_s" class="sub-menu">
-                                <li class="li_s"><a class="summary" href="#Chrome">un chat ne peut pas manger du poisson</a></li>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#nav_web">les chats</a>
-                                    <span class="sidebar-menu-arrow"></span>
-                                    <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#Chrome">bougent leurs oreilles</a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome">grossissent-ils leur queue</a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome">patounent</a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome">ont des moustaches</a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome">lèchent-ils</a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome">remuent la queue</a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome">ronronnent-ils</a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome">aiment les cartons</a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome">dorment sur nous</a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome">mangent-ils de l'herbe ?</a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome">ne peuvent pas manger de sucre</a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome"></a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome"></a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome"></a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome"></a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome"></a></li>
+                                        <li class="li_s"><a class="summary" href="#shrooms">les champignons chez le chats</a></li>
+                                        <li class="li_s"><a class="summary" href="#CSLADDC">la diarrhée du chat</a></li>
+                                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CSUC">un chat</a>
+                                            <span class="sidebar-menu-arrow"></span>
+                                            <ul class="ul_s" class="sub-menu">
+                                                <li class="li_s"><a class="summary" href="#CSUCDLMDC">de la maladie de Carré</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSUCB">blessé</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSUCE">empoisonné</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CSU">une</a>
+                                            <span class="sidebar-menu-arrow"></span>
+                                            <ul class="ul_s" class="sub-menu">
+                                                <li class="li_s"><a class="summary" href="#CSUGCLC">gingivite chez le chat</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSUCCUC">conjonctivite chez un chat</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSUCCLC">cystite chez le chat</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CSL">l'</a>
+                                            <span class="sidebar-menu-arrow"></span>
+                                            <ul class="ul_s" class="sub-menu">
+                                                <li class="li_s"><a class="summary" href="#CSLHDC">herpès du chat</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSLIUCUC">infection urinaire chez un chat</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSLIRCLC">insuffisance rénale chez le chat</a></li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </li>
-                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#nav_web">mon chat</a>
+                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CN">nourrir</a>
                                     <span class="sidebar-menu-arrow"></span>
                                     <ul class="ul_s" class="sub-menu">
-                                        <li class="li_s"><a class="summary" href="#Chrome">se cache t'il ?</a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome">miaule beaucoup</a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome">ne mange pas</a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome">tremble-t-il ?</a></li>
-                                        <li class="li_s"><a class="summary" href="#Chrome">à des renvois</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNUCQA">une chatte qui allaite</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNUCS">un chat stérilisé</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNUCA">un chaton abandonné</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNUBC">un bébé chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNMC">mon chat</a></li>
+                                    </ul>
+                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CS">savoir</a>
+                                    <span class="sidebar-menu-arrow"></span>
+                                    <ul class="ul_s" class="sub-menu">
+                                        <li class="li_s"><a class="summary" href="#CSSUCEUMOUF">si un chat est un mâle ou une femelle</a></li>
+                                        <li class="li_s"><a class="summary" href="#CSSUCAF">si un chat a froid</a></li>
+                                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CSSV">si votre</a>
+                                            <span class="sidebar-menu-arrow"></span>
+                                            <ul class="ul_s" class="sub-menu">
+                                                <li class="li_s"><a class="summary" href="#CSSVCE">chat est obèse</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSVCALG">chat a la gale</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSVCALR">chat a la rage</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSVCAUC">chat a un cancer</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSVCADP">chat a des parasites</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSVCAUIU">chat a une infection urinaire</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSVCAEE">chat a été empoisonné</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSVCEENC">chatte est enceinte</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSVCEENR">chat est enrhumé</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CSSMC">si mon chat</a>
+                                            <span class="sidebar-menu-arrow"></span>
+                                            <ul class="ul_s" class="sub-menu">
+                                                <li class="li_s"><a class="summary" href="#CSSMCEA">est albinos</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCALT">a la teigne</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCAUL">a une leucémie</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCALP">a la PIF</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCAUO">a une otite</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCSDT">souffre de toxoplasmose</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCADT">a des tiques</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCADP">a des puces</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCADBDP">a des boules de poils</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCET">est triste</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCADLF">a de la fièvre</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCALS">à le sida</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCSDA">souffre d'anémie</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCEM">est malade</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCAUOI">a une occlusion intestinale</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCEEC">est en chaleur</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCEAV">est aveugle</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCEAN">est anxieux</a></li>
+                                                <li class="li_s"><a class="summary" href="#CSSMCMA">m'aime</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CNE">nettoyer</a>
+                                    <span class="sidebar-menu-arrow"></span>
+                                    <ul class="ul_s" class="sub-menu">
+                                        <li class="li_s"><a class="summary" href="#CNELDDMC">les dents de mon chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNELODSC">les oreilles de son chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNELPDCDVM">les poils de chat dans votre maison</a></li>
+                                    </ul>
+                                </li>
+                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CE">éviter que</a>
+                                    <span class="sidebar-menu-arrow"></span>
+                                    <ul class="ul_s" class="sub-menu">
+                                        <li class="li_s"><a class="summary" href="#CEMCPADP">mon chat perde autant de poils</a></li>
+                                        <li class="li_s"><a class="summary" href="#CEMCUDLM">mon chat urine dans la maison</a></li>
+                                        <li class="li_s"><a class="summary" href="#CEMCNMSLT">mon chat ne monte sur la table</a></li>
+                                        <li class="li_s"><a class="summary" href="#CEMCMG">mon chat me griffe</a></li>
+                                        <li class="li_s"><a class="summary" href="#CEMCMSLL">mon chat monte sur le lit</a></li>
+                                        <li class="li_s"><a class="summary" href="#CEVCVM">votre chat vous morde</a></li>
+                                    </ul>
+                                </li>
+                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CAA">apprendre à</a>
+                                    <span class="sidebar-menu-arrow"></span>
+                                    <ul class="ul_s" class="sub-menu">
+                                        <li class="li_s"><a class="summary" href="#CAASCANPFSGSLM">son chat à ne pas faire ses griffes sur les meubles</a></li>
+                                        <li class="li_s"><a class="summary" href="#CAASCANPGEMLM">son chat à ne pas griffer et mordre les mains</a></li>
+                                        <li class="li_s"><a class="summary" href="#CAAMCAULG">mon chat à utiliser le griffoir</a></li>
+                                        <li class="li_s"><a class="summary" href="#CAAUCAULL">un chat à utiliser la litière</a></li>
+                                        <li class="li_s"><a class="summary" href="#CAAMCAULT">mon chat à utiliser les toilettes</a></li>
+                                        <li class="li_s"><a class="summary" href="#CAAVCADDSL">votre chat à dormir dans son lit</a></li>
+                                    </ul>
+                                </li>
+                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CT">traiter</a>
+                                    <span class="sidebar-menu-arrow"></span>
+                                    <ul class="ul_s" class="sub-menu">
+                                        <li class="li_s"><a class="summary" href="#CTLGCLC">la gale chez les chats</a></li>
+                                        <li class="li_s"><a class="summary" href="#CTLPCLC">les pellicules chez le chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CTLACLC">les acariens chez les chats</a></li>
+                                    </ul>
+                                </li>
+                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CR">rendre</a>
+                                    <span class="sidebar-menu-arrow"></span>
+                                    <ul class="ul_s" class="sub-menu">
+                                        <li class="li_s"><a class="summary" href="#CRVCPA">votre chat plus affectueux</a></li>
+                                        <li class="li_s"><a class="summary" href="#CRUCS">un chat sociable</a></li>
+                                    </ul>
+                                </li>
+                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CSO">s'occuper</a>
+                                    <span class="sidebar-menu-arrow"></span>
+                                    <ul class="ul_s" class="sub-menu">
+                                        <li class="li_s"><a class="summary" href="#CSODUCQADP">d'une chatte qui attend des petits</a></li>
+                                        <li class="li_s"><a class="summary" href="#CSODUCQVDN">d'un chaton qui vient de naître</a></li>
+                                    </ul>
+                                </li>
+                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CEU">éduquer un</a>
+                                    <span class="sidebar-menu-arrow"></span>
+                                    <ul class="ul_s" class="sub-menu">
+                                        <li class="li_s"><a class="summary" href="#CEUCHATO">chaton</a></li>
+                                        <li class="li_s"><a class="summary" href="#CEUCHAT">chat</a></li>
+                                    </ul>
+                                </li>
+                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CF">faire</a>
+                                    <span class="sidebar-menu-arrow"></span>
+                                    <ul class="ul_s" class="sub-menu">
+                                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CFP">pour</a>
+                                            <span class="sidebar-menu-arrow"></span>
+                                            <ul class="ul_s" class="sub-menu">
+                                                <li class="li_s"><a class="summary" href="#CFPQMBCADP">que mon bébé chat arrête de pleurer</a></li>
+                                                <li class="li_s"><a class="summary" href="#CFPQMCAUNC">que mon chat accepte un nouveau chat</a></li>
+                                                <li class="li_s"><a class="summary" href="#CFPQMCSB">que mon chat sente bon</a></li>
+                                                <li class="li_s"><a class="summary" href="#CFPQCASN">qu'un chat apprenne son nom</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CFU">un</a>
+                                            <span class="sidebar-menu-arrow"></span>
+                                            <ul class="ul_s" class="sub-menu">
+                                                <li class="li_s"><a class="summary" href="#CFURNPC">répulsif naturel pour chats</a></li>
+                                                <li class="li_s"><a class="summary" href="#CFUAACM">arbre à chat maison</a></li>
+                                                <li class="li_s"><a class="summary" href="#CFULPC">lit pour chat</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="li_s"><a class="summary" href="#CFMMC">maigrir mon chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CFBLFDMC">baisser la fièvre de mon chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CFRMC">ronronner mon chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CFPDPAMC">perdre du poids à mon chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CFCUCEUC">cohabiter un chien et un chat</a></li>
+                                        
+                                    </ul>
+                                </li>
+                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CP">prendre</a>
+                                    <span class="sidebar-menu-arrow"></span>
+                                    <ul class="ul_s" class="sub-menu">
+                                        <li class="li_s"><a class="summary" href="#CPSDCALODS">soin d'un chat après l'opération de stérilisation</a></li>
+                                        <li class="li_s"><a class="summary" href="#CPLTDMC">la température de son chat</a></li>
+                                    </ul>
+                                </li>
+                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CEMCD">empêcher mon chat de</a>
+                                    <span class="sidebar-menu-arrow"></span>
+                                    <ul class="ul_s" class="sub-menu">
+                                        <li class="li_s"><a class="summary" href="#CEMCDGSLC">grimper sur le canapé</a></li>
+                                        <li class="li_s"><a class="summary" href="#CEMCDLOGSP">lécher ou gratter sa plaie</a></li>
+                                    </ul>
+                                </li>
+                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#CNC">Non classé</a>
+                                    <span class="sidebar-menu-arrow"></span>
+                                    <ul class="ul_s" class="sub-menu">
+                                        <li class="li_s"><a class="summary" href="#CNC">caresser un chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNCLADSC">calculer l'âge de son chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNCAVCAMAB">aider votre chatte à mettre bas</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNCRSC">retrouver son chat</a></li>
+                                        <li class="li_s"><a class="summary" id="big" href="#findit">Retrouver sont chat à l'aide de sont téléphone</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">déménager avec un chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">déparasiter mon chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">sont les chats en chaleur</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">laver son chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">reconnaître un chat stressé</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">rassurer un chat stressé</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">protéger un chat du froid</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">détendre son chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">dresser un chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">communiquer avec mon chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">promener son chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">gronder son chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">récompenser son chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">préparer de la nourriture maison à mon chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">élever un chat siamois</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">couper les griffes d'un chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">fabriquer des jouets pour son chat</a></li>
+                                        <li class="li_s"><a class="summary" href="#CNC">laisser mon chat tout seul pendant une semaine</a></li>
                                     </ul>
                                 </li>
                                 
                             </ul>
                         </li>
-                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#nav_web">Quelle(s)</a>
+                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#">A</a>
                             <span class="sidebar-menu-arrow"></span>
                             <ul class="ul_s" class="sub-menu">
-                                <li class="li_s"><a class="summary" href="#Chrome">plantes sont toxiques pour les chats</a></li>
-                                <li class="li_s"><a class="summary" href="#Chrome">sont les maladies les plus communes chez les chats domestiques</a></li>
-                                <li class="li_s"><a class="summary" href="#Chrome">proportion doit manger mon chat</a></li>
-                                <li class="li_s"><a class="summary" href="#Chrome">alimentation pour un chat diabétique ?</a></li>
-                                <li class="li_s"><a class="summary" href="#Chrome">maladies un chat peut-il me transmettre</a></li>
+                                <li class="li_s"><a class="summary" href="#">quelle fréquence</a></li>
+                                <li class="li_s"><a class="summary" href="#">quel âge</a></li>
                             </ul>
                         </li>
-                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#nav_web">Quand</a>
+                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#">Quels</a>
                             <span class="sidebar-menu-arrow"></span>
                             <ul class="ul_s" class="sub-menu">
-                                <li class="li_s"><a class="summary" href="#Chrome">laver son chat</a></li>
-                                <li class="li_s"><a class="summary" href="#Chrome">vermifuger un chat</a></li>
-                                <li class="li_s"><a class="summary" href="#Chrome">emmener mon chat chez le vétérinaire</a></li>
-                                <li class="li_s"><a class="summary" href="#Chrome">a lieu la saison des amours chez les chats</a></li>
+                                <li class="li_s"><a class="summary" href="#">sont les chats les plus affectueux</a></li>
+                                <li class="li_s"><a class="summary" href="#">sont les meilleurs jouets pour les chats</a></li>
+                                <li class="li_s"><a class="summary" href="#">sont les chats qui perdent le moins de poils</a></li>
+                                <li class="li_s"><a class="summary" href="#">sont les aliments mauvais pour le chat</a></li>
+                                <li class="li_s"><a class="summary" href="#">sont les noms les plus drôles pour les chats</a></li>
+                                <li class="li_s"><a class="summary" href="#">sont les chats les plus calmes</a></li>
                             </ul>
                         </li>
-                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#nav_web">Remèdes</a>
+                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#">Que</a>
                             <span class="sidebar-menu-arrow"></span>
                             <ul class="ul_s" class="sub-menu">
-                                <li class="li_s"><a class="summary" href="#Chrome">naturels contre la gale chez le chats</a></li>
-                                <li class="li_s"><a class="summary" href="#Chrome">maison pour déparasiter les chats</a></li>
+                                <li class="li_s"><a class="summary" href="#">faire si mon chat a des vers</a></li>
+                                <li class="li_s"><a class="summary" href="#">faire quand un chat boite</a></li>
+                                <li class="li_s"><a class="summary" href="#">faire si mon chat a la diarrhée</a></li>
+                                <li class="li_s"><a class="summary" href="#">faire si votre chat ne veut pas manger</a></li>
+                                <li class="li_s"><a class="summary" href="#">faire de mon chat pendant les vacances</a></li>
                             </ul>
                         </li>
-                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#nav_web">Combien</a>
+                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#">Pourquoi</a>
                             <span class="sidebar-menu-arrow"></span>
                             <ul class="ul_s" class="sub-menu">
-                                <li class="li_s"><a class="summary" href="#Chrome">de chatons a une chatte par portée</a></li>
-                                <li class="li_s"><a class="summary" href="#Chrome">de temps dure la grossesse d'une chatte</a></li>
-                                <li class="li_s"><a class="summary" href="#Chrome">d'années peut vivre un chat</a></li>
+                                <li class="li_s"><a class="summary" href="#">un chat ne peut pas manger du poisson</a></li>
+                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#">les chats</a>
+                                    <span class="sidebar-menu-arrow"></span>
+                                    <ul class="ul_s" class="sub-menu">
+                                        <li class="li_s"><a class="summary" href="#">bougent leurs oreilles</a></li>
+                                        <li class="li_s"><a class="summary" href="#">grossissent-ils leur queue</a></li>
+                                        <li class="li_s"><a class="summary" href="#">patounent</a></li>
+                                        <li class="li_s"><a class="summary" href="#">ont des moustaches</a></li>
+                                        <li class="li_s"><a class="summary" href="#">lèchent-ils</a></li>
+                                        <li class="li_s"><a class="summary" href="#">remuent la queue</a></li>
+                                        <li class="li_s"><a class="summary" href="#">ronronnent-ils</a></li>
+                                        <li class="li_s"><a class="summary" href="#">aiment les cartons</a></li>
+                                        <li class="li_s"><a class="summary" href="#">dorment sur nous</a></li>
+                                        <li class="li_s"><a class="summary" href="#">mangent-ils de l'herbe ?</a></li>
+                                        <li class="li_s"><a class="summary" href="#">ne peuvent pas manger de sucre</a></li>
+                                    </ul>
+                                </li>
+                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#">mon chat</a>
+                                    <span class="sidebar-menu-arrow"></span>
+                                    <ul class="ul_s" class="sub-menu">
+                                        <li class="li_s"><a class="summary" href="#">vomit</a></li>
+                                        <li class="li_s"><a class="summary" href="#">se cache t'il ?</a></li>
+                                        <li class="li_s"><a class="summary" href="#">miaule beaucoup</a></li>
+                                        <li class="li_s"><a class="summary" href="#">ne mange pas</a></li>
+                                        <li class="li_s"><a class="summary" href="#">tremble-t-il ?</a></li>
+                                        <li class="li_s"><a class="summary" href="#">à des renvois</a></li>
+                                    </ul>
+                                </li>
+                                
                             </ul>
                         </li>
-                        <li class="li_s"><a class="summary" href="#Chrome">La signification des postures du chat</a></li>
-                        <li class="li_s"><a class="summary" href="#Chrome">Le collier à clochette est-il mauvais pour votre chat ?</a></li>
-                        <li class="li_s"><a class="summary" href="#Chrome">Les symptômes de la grossesse nerveuse chez le chat</a></li>
-                        <li class="li_s"><a class="summary" href="#Chrome">Où peut se cacher un chat</a></li>
-                        <li class="li_s"><a class="summary" href="#Chrome">Est-il bon de dormir avec son chat ?</a></li>
-                        <li class="li_s"><a class="summary" href="#Chrome">Traitement naturel contre la teigne chez le chat</a></li>
-                        <li class="li_s"><a class="summary" href="#Chrome">Fièvre chez le chat - Symptômes et causes</a></li>
-                        <li class="li_s"><a class="summary" href="#Chrome">Symptômes de la leishmaniose chez les chats</a></li>
-                        <li class="li_s"><a class="summary" href="#Chrome">7 aliments qu'il ne faut pas donner aux chats</a></li>
-                        <li class="li_s"><a class="summary" href="#Chrome">6 conseils pour éduquer votre chat</a></li>
-                        <li class="li_s"><a class="summary" href="#Chrome">Pour retrouver sont chat à l'aide de sont téléphone</a></li>
+                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#">Quelle(s)</a>
+                            <span class="sidebar-menu-arrow"></span>
+                            <ul class="ul_s" class="sub-menu">
+                                <li class="li_s"><a class="summary" href="#">plantes sont toxiques pour les chats</a></li>
+                                <li class="li_s"><a class="summary" href="#">sont les maladies les plus communes chez les chats domestiques</a></li>
+                                <li class="li_s"><a class="summary" href="#">proportion doit manger mon chat</a></li>
+                                <li class="li_s"><a class="summary" href="#">alimentation pour un chat diabétique ?</a></li>
+                                <li class="li_s"><a class="summary" href="#">maladies un chat peut-il me transmettre</a></li>
+                            </ul>
+                        </li>
+                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#">Quand</a>
+                            <span class="sidebar-menu-arrow"></span>
+                            <ul class="ul_s" class="sub-menu">
+                                <li class="li_s"><a class="summary" href="#">laver son chat</a></li>
+                                <li class="li_s"><a class="summary" href="#">vermifuger un chat</a></li>
+                                <li class="li_s"><a class="summary" href="#">emmener mon chat chez le vétérinaire</a></li>
+                                <li class="li_s"><a class="summary" href="#">a lieu la saison des amours chez les chats</a></li>
+                            </ul>
+                        </li>
+                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#">Remèdes</a>
+                            <span class="sidebar-menu-arrow"></span>
+                            <ul class="ul_s" class="sub-menu">
+                                <li class="li_s"><a class="summary" href="#">naturels contre la gale chez le chats</a></li>
+                                <li class="li_s"><a class="summary" href="#">maison pour déparasiter les chats</a></li>
+                            </ul>
+                        </li>
+                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#">Combien</a>
+                            <span class="sidebar-menu-arrow"></span>
+                            <ul class="ul_s" class="sub-menu">
+                                <li class="li_s"><a class="summary" href="#">de chatons a une chatte par portée</a></li>
+                                <li class="li_s"><a class="summary" href="#">de temps dure la grossesse d'une chatte</a></li>
+                                <li class="li_s"><a class="summary" href="#">d'années peut vivre un chat</a></li>
+                            </ul>
+                        </li>
+                        <li class="li_s" class="menu-item-has-children"><a class="summary" href="#unsorted">Non classé</a>
+                            <span class="sidebar-menu-arrow"></span>
+                            <ul class="ul_s" class="sub-menu">
+                                <li class="li_s"><a class="summary" href="#">La signification des postures du chat</a></li>
+                                <li class="li_s"><a class="summary" href="#">Le collier à clochette est-il mauvais pour votre chat ?</a></li>
+                                <li class="li_s"><a class="summary" href="#">Les symptômes de la grossesse nerveuse chez le chat</a></li>
+                                <li class="li_s"><a class="summary" href="#">Où peut se cacher un chat</a></li>
+                                <li class="li_s"><a class="summary" href="#">Est-il bon de dormir avec son chat ?</a></li>
+                                <li class="li_s"><a class="summary" href="#">Traitement naturel contre la teigne chez le chat</a></li>
+                                <li class="li_s"><a class="summary" href="#">Fièvre chez le chat - Symptômes et causes</a></li>
+                                <li class="li_s"><a class="summary" href="#">Symptômes de la leishmaniose chez les chats</a></li>
+                                <li class="li_s"><a class="summary" href="#">7 aliments qu'il ne faut pas donner aux chats</a></li>
+                                <li class="li_s"><a class="summary" href="#">6 conseils pour éduquer votre chat</a></li>
+                                <li class="li_s" class="menu-item-has-children"><a class="summary" href="#findcat">Pour retrouver sont chat à l'aide de sont téléphone</a>
+                                    <span class="sidebar-menu-arrow"></span>
+                                    <ul class="ul_s" class="sub-menu">
+                                        <li class="li_s"><a class="summary" href="#findcatamazon">sur Amazon:</a></li>
+                                        <li class="li_s"><a class="summary" href="#findcatbangood">sur Bangood:</a></li>
+                                        <li class="li_s"><a class="summary" href="#findcatVinted">sur Vinted:</a></li>
+                                        <li class="li_s"><a class="summary" href="#idealo">sur Idealo</a></li>
+                                        <li class="li_s"><a class="summary" href=#decideur>sur Décideur</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>			
                 </div>
             </div>
-            <p><center><h1><b><u>Les sites internet vous permettant d'avoir accès à des typographies pour les dislexiques</center></u></b></h1></p>
+            <p><center><h1><b><u>A Propos des Chats, Indexe de réponses à des question possibles.</center></u></b></h1></p>
         </header>
         <br>
         <br>
-        <h1 id=""></h1>
-        <p><h2></h2><a class="link" href=""></a></p>
+        <h1 id="Howto">Fonctionnement du sommaire</h1>
+        <div class="howto">
+            <br>
+            <p><h2>L'afficher</h2></p>
+            <p>Pour afficher le sommaire auppuyez sur l'endroit où se trouve trois rectangles l'un en dessous de l'autre, ceci permettra de faire glisser un volé contenant le sommaire.</p>
+            <br>
+            <p><h2>S'y reprer</h2></p>
+            <p>Une fois dans le sommaire, pour se reprer il suffit de cliquer sur les premiers mot compris dans le question que vous vous posez.</p>
+            <p>Par exemple, si vous souhaiter savoir "<a class="HOWW" href="#Comment">Comment</a> <a class="cure" href="#cure">soigner</a> <a class="end" href="#shrooms">les champignons chez les chats?</a>", vous pouvez faire ce type de raisonnement:</p>
+            <p>Le premier mot est <a class="HOWW" href="#Comment">"Comment"</a> Vous irez donc dans le rubrique "<a class="HOWW" href="#Comment">Comment</a>" et ferez défiler le menu jusqu'à trouver le prochain mot <a class="cure" href="#cure">"soigner"</a> et irez dans cette rubrique et chercherez le prochain mot <a class="shrooms" href="#shrooms">"les champignons"</a> et vous tomberez sur la fin de la question <a class="end" href="#shrooms">"les champignons chez les chats"</a>.</p>
+            <br>
+            <p>Ce type de raisonnenment est celui que je vous recommande d'utiliser pour vous reprer dans cette page.</p>
+            <br>
+            <p><h2>Le but de cette page</h2></p>
+            <p>Le but de cette page est de vous permettre de trouver les réponses à vos question par rapport au chats.</p>
+            <br>
+            <p>Il y a une petite rubrique se du nom de <a class="division" href="#findcat">Pour retrouver sont chat à l'aide de sont téléphone</a> qui vous propose quelques produits qui sont des GPS pour ne plus perdre sont chat.</p>
+            <br>
+        </div>
+        <br>
+        <p class="linktexts" id="Comment"><h1>Comment</h1></p>
+        <p class="linktexts" id="cure"><h2>soigner</h2></p>
+        <br>
+        <p class="linktexts" id="shrooms">Comment soigner les champignons chez le chats: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-soigner-les-champignons-chez-le-chats-10785.html">https://animaux.toutcomment.com/article/comment-soigner-les-champignons-chez-le-chats-10785.html</a></p>
+        <p class="linktexts" id="CSLADDC">Comment soigner la diarrhée du chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-soigner-la-diarrhee-du-chat-10874.html">https://animaux.toutcomment.com/article/comment-soigner-la-diarrhee-du-chat-10874.html</a></p>
+        <p class="linktexts" id="CSUCDLMDC">Comment soigner un chat de la maladie de Carré: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-soigner-un-chat-de-la-maladie-de-carre-9554.html">https://animaux.toutcomment.com/article/comment-soigner-un-chat-de-la-maladie-de-carre-9554.html</a></p>
+        <p class="linktexts" id="CSUCB">Comment soigner un chat blessé: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-soigner-un-chat-blesse-10322.html">https://animaux.toutcomment.com/article/comment-soigner-un-chat-blesse-10322.html</a></p>
+        <p class="linktexts" id="CSUCE">Comment soigner un chat empoisonné: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-a-ete-empoisonne-5816.html">https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-a-ete-empoisonne-5816.html</a></p>
+        <p class="linktexts" id="CSUGCLC">Comment soigner une gingivite chez le chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-soigner-une-gingivite-chez-le-chat-12492.html">https://animaux.toutcomment.com/article/comment-soigner-une-gingivite-chez-le-chat-12492.html</a></p>
+        <p class="linktexts" id="CSUCCUC">Comment soigner une conjonctivite chez un chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-soigner-une-conjonctivite-chez-un-chat-3573.html">https://animaux.toutcomment.com/article/comment-soigner-une-conjonctivite-chez-un-chat-3573.html</a></p>
+        <p class="linktexts" id="CSUCCLC">Comment soigner une cystite chez le chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-soigner-une-cystite-chez-le-chat-11702.html">https://animaux.toutcomment.com/article/comment-soigner-une-cystite-chez-le-chat-11702.html</a></p>
+        <p class="linktexts" id="CSLHDC">Comment soigner l'herpès du chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-soigner-l-herpes-du-chat-11731.html">https://animaux.toutcomment.com/article/comment-soigner-l-herpes-du-chat-11731.html</a></p>
+        <p class="linktexts" id="CSLIUCUC">Comment soigner l'infection urinaire chez un chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-soigner-l-infection-urinaire-chez-un-chat-2890.html">https://animaux.toutcomment.com/article/comment-soigner-l-infection-urinaire-chez-un-chat-2890.html</a></p>
+        <p class="linktexts" id="CSLIRCLC">Comment soigner l'insuffisance rénale chez le chat:<a class="linkpage" href="https://animaux.toutcomment.com/article/comment-soigner-l-insuffisance-renale-chez-le-chat-9296.html">https://animaux.toutcomment.com/article/comment-soigner-l-insuffisance-renale-chez-le-chat-9296.html</a></p>
+        <br>
+        <p class="linktexts" id="CN"><h2>nourrir</h2></p>
+        <br>
+        <p class="linktexts" id="CNUCQA">Comment nourrir une chatte qui allaite: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-nourrir-une-chatte-qui-allaite-10498.html">https://animaux.toutcomment.com/article/comment-nourrir-une-chatte-qui-allaite-10498.html</a></p>
+        <p class="linktexts" id="CNUCS">Comment nourrir un chat stérilisé: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-nourrir-un-chat-sterilise-4974.html">https://animaux.toutcomment.com/article/comment-nourrir-un-chat-sterilise-4974.html</a></p>
+        <p class="linktexts" id="CNUCA">Comment nourrir un chaton abandonné: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-nourrir-un-chaton-abandonne-2907.html">https://animaux.toutcomment.com/article/comment-nourrir-un-chaton-abandonne-2907.html</a></p>
+        <p class="linktexts" id="CNUBC">Comment nourrir un bébé chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-nourrir-un-bebe-chat-711.html">https://animaux.toutcomment.com/article/comment-nourrir-un-bebe-chat-711.html</a></p>
+        <p class="linktexts" id="CNMC">Comment nourrir mon chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-nourrir-mon-chat-4654.html">https://animaux.toutcomment.com/article/comment-nourrir-mon-chat-4654.html</a></p>
+        <br>
+        <p class="linktexts" id="CS"><h2>savoir</h2></p>
+        <br>
+        <p class="linktexts" id="CSSUCEUMOUF">Comment savoir si un chat est un mâle ou une femelle: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-un-chat-est-un-male-ou-une-femelle-286.html">https://animaux.toutcomment.com/article/comment-savoir-si-un-chat-est-un-male-ou-une-femelle-286.html</a></p>
+        <p class="linktexts" id="CSSUCAF">Comment savoir si un chat a froid: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-un-chat-a-froid-6543.html">https://animaux.toutcomment.com/article/comment-savoir-si-un-chat-a-froid-6543.html</a></p>
+        <p class="linktexts" id="CSSVCE">Comment savoir si votre chat est obèse: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-est-obese-7903.html">https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-est-obese-7903.html</a></p>
+        <p class="linktexts" id="CSSVCALG">Comment savoir si votre chat a la gale: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-a-la-gale-4033.html">https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-a-la-gale-4033.html</a></p>
+        <p class="linktexts" id="CSSVCALR">Comment savoir si votre chat a la rage: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-a-la-rage-2152.html">https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-a-la-rage-2152.html</a></p>
+        <p class="linktexts" id="CSSVCAUC">Comment savoir si votre chat a un cancer: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-a-un-cancer-11976.html">https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-a-un-cancer-11976.html</a></p>
+        <p class="linktexts" id="CSSVCADP">Comment savoir si votre chat a des parasites: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-a-des-parasites-1404.html">https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-a-des-parasites-1404.html</a></p>
+        <p class="linktexts" id="CSSVCAUIU">Comment savoir si votre chat a une infection urinaire: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-a-une-infection-urinaire-2773.html">https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-a-une-infection-urinaire-2773.html</a></p>
+        <p class="linktexts" id="CSSVCAEE">Comment savoir si votre chat a été empoisonné: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-a-ete-empoisonne-5816.html">https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-a-ete-empoisonne-5816.html</a></p>
+        <p class="linktexts" id="CSSVCEENC">Comment savoir si votre chatte est enceinte: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-votre-chatte-est-enceinte-681.html">https://animaux.toutcomment.com/article/comment-savoir-si-votre-chatte-est-enceinte-681.html</a></p>
+        <p class="linktexts" id="CSSVCEENR">Comment savoir si votre chat est enrhumé: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-est-enrhume-4052.html">https://animaux.toutcomment.com/article/comment-savoir-si-votre-chat-est-enrhume-4052.html</a></p>
+        <p class="linktexts" id="CSSMCEA">Comment savoir si mon chat est albinos: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-est-albinos-7968.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-est-albinos-7968.html</a></p>
+        <p class="linktexts" id="CSSMCALT">Comment savoir si mon chat a la teigne: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-la-teigne-11550.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-la-teigne-11550.html</a></p>
+        <p class="linktexts" id="CSSMCAUL">Comment savoir si mon chat a une leucémie: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-une-leucemie-9112.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-une-leucemie-9112.html</a></p>
+        <p class="linktexts" id="CSSMCALP">Comment savoir si mon chat a la PIF: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-la-pif-9352.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-la-pif-9352.html</a></p>
+        <p class="linktexts" id="CSSMCAUO">Comment savoir si mon chat a une otite: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-une-otite-9586.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-une-otite-9586.html</a></p>
+        <p class="linktexts" id="CSSMCSDT">Comment savoir si mon chat souffre de toxoplasmose: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-souffre-de-toxoplasmose-3077.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-souffre-de-toxoplasmose-3077.html</a></p>
+        <p class="linktexts" id="CSSMCADT">Comment savoir si mon chat a des tiques: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-des-tiques-13197.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-des-tiques-13197.html</a></p>
+        <p class="linktexts" id="CSSMCADP">Comment savoir si mon chat a des puces: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-des-puces-4717.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-des-puces-4717.html</a></p>
+        <p class="linktexts" id="CSSMCADBDP">Comment savoir si mon chat a des boules de poils: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-des-boules-de-poils-4446.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-des-boules-de-poils-4446.html</a></p>
+        <p class="linktexts" id="CSSMCET">Comment savoir si mon chat est triste: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-est-triste-11630.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-est-triste-11630.html</a></p>
+        <p class="linktexts" id="CSSMCADLF">Comment savoir si mon chat a de la fièvre: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-de-la-fievre-781.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-de-la-fievre-781.html</a></p>
+        <p class="linktexts" id="CSSMCALS">Comment savoir si mon chat à le sida: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-le-sida-9590.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-le-sida-9590.html</a></p>
+        <p class="linktexts" id="CSSMCSDA">Comment savoir si mon chat souffre d'anémie: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-souffre-d-anemie-9148.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-souffre-d-anemie-9148.html</a></p>
+        <p class="linktexts" id="CSSMCEM">Comment savoir si mon chat est malade: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-est-malade-1284.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-est-malade-1284.html</a></p>
+        <p class="linktexts" id="CSSMCAUOI">Comment savoir si mon chat a une occlusion intestinale: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-une-occlusion-intestinale-7566.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-a-une-occlusion-intestinale-7566.html</a></p>
+        <p class="linktexts" id="CSSMCEEC">Comment savoir si mon chat est en chaleur: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-est-en-chaleur-2930.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-est-en-chaleur-2930.html</a></p>
+        <p class="linktexts" id="CSSMCEAV">Comment savoir si mon chat est aveugle: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-est-aveugle-8272.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-est-aveugle-8272.html</a></p>
+        <p class="linktexts" id="CSSMCEAN">Comment savoir si mon chat est anxieux: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-est-anxieux-11533.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-est-anxieux-11533.html</a></p>
+        <p class="linktexts" id="CSSMCMA">Comment savoir si mon chat m'aime: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-m-aime-11763.html">https://animaux.toutcomment.com/article/comment-savoir-si-mon-chat-m-aime-11763.html</a></p>
+        <br>
+        <p class="linktexts" id="CNE"><h2>nettoyer</h2></p>
+        <br>
+        <p class="linktexts" id="CNELDDMC">Comment nettoyer les dents de mon chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-nettoyer-les-dents-de-mon-chat-4919.html">https://animaux.toutcomment.com/article/comment-nettoyer-les-dents-de-mon-chat-4919.html</a></p>
+        <p class="linktexts" id="CNELODSC">Comment nettoyer les oreilles de son chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-nettoyer-les-oreilles-de-son-chat-8130.html">https://animaux.toutcomment.com/article/comment-nettoyer-les-oreilles-de-son-chat-8130.html</a></p>
+        <p class="linktexts" id="CNELPDCDVM">Comment nettoyer les poils de chat dans votre maison: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-nettoyer-les-poils-de-chat-dans-votre-maison-6831.html">https://animaux.toutcomment.com/article/comment-nettoyer-les-poils-de-chat-dans-votre-maison-6831.html</a></p>
+        <br>
+        <p class="linktexts" id="CE"><h2>éviter</h2></p>
+        <br>
+        <p class="linktexts" id="CEMCPADP">Comment éviter que mon chat perde autant de poils: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-eviter-que-mon-chat-perde-autant-de-poils-2262.html">https://animaux.toutcomment.com/article/comment-eviter-que-mon-chat-perde-autant-de-poils-2262.html</a></p>
+        <p class="linktexts" id="CEMCUDLM">Comment éviter que mon chat urine dans la maison: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-eviter-que-mon-chat-urine-dans-la-maison-752.html">https://animaux.toutcomment.com/article/comment-eviter-que-mon-chat-urine-dans-la-maison-752.html</a></p>
+        <p class="linktexts" id="CEMCNMSLT">Comment éviter que mon chat ne monte sur la table: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-eviter-que-mon-chat-ne-monte-sur-la-table-6315.html">https://animaux.toutcomment.com/article/comment-eviter-que-mon-chat-ne-monte-sur-la-table-6315.html</a></p>
+        <p class="linktexts" id="CEMCMG">Comment éviter que mon chat me griffe: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-eviter-que-mon-chat-me-griffe-6939.html">https://animaux.toutcomment.com/article/comment-eviter-que-mon-chat-me-griffe-6939.html</a></p>
+        <p class="linktexts" id="CEMCMSLL">Comment éviter que mon chat monte sur le lit: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-eviter-que-mon-chat-monte-sur-le-lit-6335.html">https://animaux.toutcomment.com/article/comment-eviter-que-mon-chat-monte-sur-le-lit-6335.html</a></p>
+        <p class="linktexts" id="CEVCVM">Comment éviter que votre chat vous morde: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-eviter-que-votre-chat-vous-morde-1152.html">https://animaux.toutcomment.com/article/comment-eviter-que-votre-chat-vous-morde-1152.html</a></p>
+        <br>
+        <p class="linktexts" id="CAA"><h2>apprendre</h2></p>
+        <br>
+        <p class="linktexts" id="CAASCANPFSGSLM">Comment apprendre à son chat à ne pas faire ses griffes sur les meubles: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-apprendre-a-son-chat-a-ne-pas-faire-ses-griffes-sur-les-meubles-2858.html">https://animaux.toutcomment.com/article/comment-apprendre-a-son-chat-a-ne-pas-faire-ses-griffes-sur-les-meubles-2858.html</a></p>
+        <p class="linktexts" id="CAASCANPGEMLM">Comment apprendre à son chat à ne pas griffer et mordre les mains: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-apprendre-a-son-chat-a-ne-pas-griffer-et-mordre-les-mains-780.html">https://animaux.toutcomment.com/article/comment-apprendre-a-son-chat-a-ne-pas-griffer-et-mordre-les-mains-780.html</a></p>
+        <p class="linktexts" id="CAAMCAULG">Comment apprendre à mon chat à utiliser le griffoir: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-apprendre-a-mon-chat-a-utiliser-le-griffoir-5283.html">https://animaux.toutcomment.com/article/comment-apprendre-a-mon-chat-a-utiliser-le-griffoir-5283.html</a></p>
+        <p class="linktexts" id="CAAUCAULL">Comment apprendre à un chat à utiliser la litière: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-apprendre-a-un-chat-a-utiliser-la-litiere-1814.html">https://animaux.toutcomment.com/article/comment-apprendre-a-un-chat-a-utiliser-la-litiere-1814.html</a></p>
+        <p class="linktexts" id="CAAMCAULT">Comment apprendre à mon chat à utiliser les toilettes: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-apprendre-a-mon-chat-a-utiliser-les-toilettes-12162.html">https://animaux.toutcomment.com/article/comment-apprendre-a-mon-chat-a-utiliser-les-toilettes-12162.html</a></p>
+        <p class="linktexts" id="CAAVCADDSL">Comment apprendre à votre chat à dormir dans son lit: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-apprendre-a-votre-chat-a-dormir-dans-son-lit-4100.html">https://animaux.toutcomment.com/article/comment-apprendre-a-votre-chat-a-dormir-dans-son-lit-4100.html</a></p>
+        <br>
+        <p class="linktexts" id="CT"><h2>traiter</h2></p>
+        <br>
+        <p class="linktexts" id="CTLGCLC">Comment traiter la gale chez les chats: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-traiter-la-gale-chez-les-chats-12713.html">https://animaux.toutcomment.com/article/comment-traiter-la-gale-chez-les-chats-12713.html</a></p>
+        <p class="linktexts" id="CTLPCLC">Comment traiter les pellicules chez le chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-traiter-les-pellicules-chez-le-chat-10552.html</a></p>
+        <p class="linktexts" id="CTLACLC">Comment traiter les acariens chez les chats: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-traiter-les-acariens-chez-les-chats-5360.html">https://animaux.toutcomment.com/article/comment-traiter-les-acariens-chez-les-chats-5360.html</a></p>
+        <br>
+        <p class="linktexts" id="CR"><h2>rendre</h2></a></p>
+        <br>
+        <p class="linktexts" id="CRVCPA">Comment rendre votre chat plus affectueux: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-rendre-votre-chat-plus-affectueux-1844.html">https://animaux.toutcomment.com/article/comment-rendre-votre-chat-plus-affectueux-1844.html</a></p>
+        <p class="linktexts" id="CRUCS">Comment rendre un chat sociable: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-rendre-un-chat-sociable-8637.html">https://animaux.toutcomment.com/article/comment-rendre-un-chat-sociable-8637.html</a></p>
+        <br>
+        <p class="linktexts" id="CSO"><h2>s'occuper</h2></a></p>
+        <br>
+        <p class="linktexts" id="CSODUCQADP">Comment s'occuper d'une chatte qui attend des petits: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-s-occuper-d-une-chatte-qui-attend-des-petits-4480.html">https://animaux.toutcomment.com/article/comment-s-occuper-d-une-chatte-qui-attend-des-petits-4480.html</a></p>
+        <p class="linktexts" id="CSODUCQVDN">Comment s'occuper d'un chaton qui vient de naître: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-s-occuper-d-un-chaton-qui-vient-de-naitre-7504.html">https://animaux.toutcomment.com/article/comment-s-occuper-d-un-chaton-qui-vient-de-naitre-7504.html</a></p>
+        <br>
+        <p class="linktexts" id="CEU"><h2>éduqer</h2></p>
+        <br>
+        <p class="linktexts" id="CEUCHATO">Comment éduquer un chaton: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-eduquer-un-chaton-13087.html">https://animaux.toutcomment.com/article/comment-eduquer-un-chaton-13087.html</a></p>
+        <p class="linktexts" id="CEUCHAT">Comment éduquer un chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-eduquer-un-chat-9753.html">https://animaux.toutcomment.com/article/comment-eduquer-un-chat-9753.html</a></p>
+        <br>
+        <p class="linktexts" id="CF"><h2>faire</h2></p>
+        <br>
+        <p class="linktexts" id="CFPQMBCADP">Comment faire pour que mon bébé chat arrête de pleurer: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-faire-pour-que-mon-bebe-chat-arrete-de-pleurer-4003.html">https://animaux.toutcomment.com/article/comment-faire-pour-que-mon-bebe-chat-arrete-de-pleurer-4003.html</a></p>
+        <p class="linktexts" id="CFPQMCAUNC">Comment faire pour que mon chat accepte un nouveau chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-faire-pour-que-mon-chat-accepte-un-nouveau-chat-2002.html">https://animaux.toutcomment.com/article/comment-faire-pour-que-mon-chat-accepte-un-nouveau-chat-2002.html</a></p>
+        <p class="linktexts" id="CFPQMCSB">Comment faire pour que mon chat sente bon: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-faire-pour-que-mon-chat-sente-bon-7238.html">https://animaux.toutcomment.com/article/comment-faire-pour-que-mon-chat-sente-bon-7238.html</a></p>
+        <p class="linktexts" id="CFPQCASN">Comment faire pour qu'un chat apprenne son nom: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-faire-pour-qu-un-chat-apprenne-son-nom-6089.html">https://animaux.toutcomment.com/article/comment-faire-pour-qu-un-chat-apprenne-son-nom-6089.html</a></p>
+        <p class="linktexts" id="CFURNPC">Comment faire un répulsif naturel pour chats: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-faire-un-repulsif-naturel-pour-chats-608.html">https://animaux.toutcomment.com/article/comment-faire-un-repulsif-naturel-pour-chats-608.html</a></p>
+        <p class="linktexts" id="CFUAACM">Comment faire un arbre à chat maison: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-faire-un-arbre-a-chat-maison-3383.html">https://animaux.toutcomment.com/article/comment-faire-un-arbre-a-chat-maison-3383.html</a></p>
+        <p class="linktexts" id="CFULPC">Comment faire un lit pour chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-faire-un-lit-pour-chat-11445.html">https://animaux.toutcomment.com/article/comment-faire-un-lit-pour-chat-11445.html</a></p>
+        <p class="linktexts" id="CFMMC">Comment faire maigrir mon chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-faire-maigrir-mon-chat-11689.html">https://animaux.toutcomment.com/article/comment-faire-maigrir-mon-chat-11689.html</a></p>
+        <p class="linktexts" id="CFBLFDMC">Comment faire baisser la fièvre de mon chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-faire-baisser-la-fievre-de-mon-chat-4750.html">https://animaux.toutcomment.com/article/comment-faire-baisser-la-fievre-de-mon-chat-4750.html</a></p>
+        <p class="linktexts" id="CFRMC">Comment faire ronronner mon chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-faire-ronronner-mon-chat-7150.html">https://animaux.toutcomment.com/article/comment-faire-ronronner-mon-chat-7150.html</a></p>
+        <p class="linktexts" id="CFPDPAMC">Comment faire perdre du poids à mon chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-faire-perdre-du-poids-a-mon-chat-9660.html">https://animaux.toutcomment.com/article/comment-faire-perdre-du-poids-a-mon-chat-9660.html</a></p>
+        <p class="linktexts" id="CFCUCEUC">Comment faire cohabiter un chien et un chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-faire-cohabiter-un-chien-et-un-chat-9685.html">https://animaux.toutcomment.com/article/comment-faire-cohabiter-un-chien-et-un-chat-9685.html</a></p>
+        <br>
+        <p class="linktexts" id="CP"><h2>prendre</h2></p>
+        <br>
+        <p class="linktexts" id="CPSDCALODS">Comment prendre soin d'un chat après l'opération de stérilisation: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-prendre-soin-d-un-chat-apres-l-operation-de-sterilisation-783.html">https://animaux.toutcomment.com/article/comment-prendre-soin-d-un-chat-apres-l-operation-de-sterilisation-783.html</a></p>
+        <p class="linktexts" id="CPLTDMC">Comment prendre la température de son chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-prendre-la-temperature-de-son-chat-8160.html">https://animaux.toutcomment.com/article/comment-prendre-la-temperature-de-son-chat-8160.html</a></p>
+        <br>
+        <p class="linktexts" id="CEMCD"><h2>empêcher</h2></p>
+        <br>
+        <p class="linktexts" id="CEMCDGSLC">Comment empêcher mon chat de grimper sur le canapé: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-empecher-mon-chat-de-grimper-sur-le-canape-12443.html">https://animaux.toutcomment.com/article/comment-empecher-mon-chat-de-grimper-sur-le-canape-12443.html</a></p>
+        <p class="linktexts" id="CEMCDLOGSP">Comment empêcher mon chat de lécher ou gratter sa plaie: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-empecher-mon-chat-de-lecher-ou-gratter-sa-plaie-12038.html">https://animaux.toutcomment.com/article/comment-empecher-mon-chat-de-lecher-ou-gratter-sa-plaie-12038.html</a></p>
+        <br>
+        <p class="linktexts" id="CNC"><h2>Non Classé</h2>></p>
+        <br>
+        <p class="linktexts" id="">Comment reconnaître un chat stressé: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-reconnaitre-un-chat-stresse-7943.html">https://animaux.toutcomment.com/article/comment-reconnaitre-un-chat-stresse-7943.html</a></p>
+        <p class="linktexts" id="">Comment caresser un chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-caresser-un-chat-11228.html">https://animaux.toutcomment.com/article/comment-caresser-un-chat-11228.html</a></p>
+        <p class="linktexts" id="">Comment calculer l'âge de son chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-calculer-l-age-de-son-chat-11794.html">https://animaux.toutcomment.com/article/comment-calculer-l-age-de-son-chat-11794.html</a></p>
+        <p class="linktexts" id="">Comment aider votre chatte à mettre bas: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-aider-votre-chatte-a-mettre-bas-1639.html">https://animaux.toutcomment.com/article/comment-aider-votre-chatte-a-mettre-bas-1639.html</a></p>
+        <p class="linktexts" id="">Comment retrouver son chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-retrouver-son-chat-5628.html">https://animaux.toutcomment.com/article/comment-retrouver-son-chat-5628.html</a></p>
+        <p class="linktexts" id="">Comment déménager avec un chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-demenager-avec-un-chat-10128.html">https://animaux.toutcomment.com/article/comment-demenager-avec-un-chat-10128.html</a></p>
+        <p class="linktexts" id="">Comment déparasiter mon chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-deparasiter-mon-chat-1076.html">https://animaux.toutcomment.com/article/comment-deparasiter-mon-chat-1076.html</a></p>
+        <p class="linktexts" id="">Comment sont les chats en chaleur: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-sont-les-chats-en-chaleur-2727.html">https://animaux.toutcomment.com/article/comment-sont-les-chats-en-chaleur-2727.html</a></p>
+        <p class="linktexts" id="">Comment laver son chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-laver-son-chat-1603.html">https://animaux.toutcomment.com/article/comment-laver-son-chat-1603.html</a></p>
+        <p class="linktexts" id="">Comment rassurer un chat stressé: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-rassurer-un-chat-stresse-13579.html">https://animaux.toutcomment.com/article/comment-rassurer-un-chat-stresse-13579.html</a></p>
+        <p class="linktexts" id="">Comment protéger un chat du froid: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-proteger-un-chat-du-froid-11741.html">https://animaux.toutcomment.com/article/comment-proteger-un-chat-du-froid-11741.html</a></p>
+        <p class="linktexts" id="">Comment détendre son chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-detendre-son-chat-11440.html">https://animaux.toutcomment.com/article/comment-detendre-son-chat-11440.html</a></p>
+        <p class="linktexts" id="">Comment dresser un chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-dresser-un-chat-6516.html">https://animaux.toutcomment.com/article/comment-dresser-un-chat-6516.html</a></p>
+        <p class="linktexts" id="">Comment communiquer avec mon chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-communiquer-avec-mon-chat-2430.html">https://animaux.toutcomment.com/article/comment-communiquer-avec-mon-chat-2430.html</a></p>
+        <p class="linktexts" id="">Comment promener son chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-promener-son-chat-2901.html">https://animaux.toutcomment.com/article/comment-promener-son-chat-2901.html</a></p>
+        <p class="linktexts" id="">Comment gronder son chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-gronder-son-chat-8447.html">https://animaux.toutcomment.com/article/comment-gronder-son-chat-8447.html</a></p>
+        <p class="linktexts" id="">Comment récompenser son chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-recompenser-son-chat-9988.html">https://animaux.toutcomment.com/article/comment-recompenser-son-chat-9988.html</a></p>
+        <p class="linktexts" id="">Comment préparer de la nourriture maison à mon chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-preparer-de-la-nourriture-maison-a-mon-chat-1535.html">https://animaux.toutcomment.com/article/comment-preparer-de-la-nourriture-maison-a-mon-chat-1535.html</a></p>
+        <p class="linktexts" id="">Comment élever un chat siamois: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-elever-un-chat-siamois-9284.html">https://animaux.toutcomment.com/article/comment-elever-un-chat-siamois-9284.html</a></p>
+        <p class="linktexts" id="">Comment couper les griffes d'un chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-couper-les-griffes-d-un-chat-3803.html">https://animaux.toutcomment.com/article/comment-couper-les-griffes-d-un-chat-3803.html</a></p>
+        <p class="linktexts" id="">Comment fabriquer des jouets pour son chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-fabriquer-des-jouets-pour-son-chat-11736.html">https://animaux.toutcomment.com/article/comment-fabriquer-des-jouets-pour-son-chat-11736.html</a></p>
+        <p class="linktexts" id="">Comment laisser mon chat tout seul pendant une semaine: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-laisser-mon-chat-tout-seul-pendant-une-semaine-2680.html">https://animaux.toutcomment.com/article/comment-laisser-mon-chat-tout-seul-pendant-une-semaine-2680.html</a></p>
+        <br>
+        <p class="linktexts" id=""><h1>A</h1></p>
+        <br>
+        <p class="linktexts" id="">A quelle fréquence couper les griffes de votre chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/a-quelle-frequence-couper-les-griffes-de-votre-chat-5101.html">https://animaux.toutcomment.com/article/a-quelle-frequence-couper-les-griffes-de-votre-chat-5101.html</a></p>
+        <p class="linktexts" id="">À quel âge dois-je stériliser mon chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/a-quel-age-dois-je-steriliser-mon-chat-1591.html">https://animaux.toutcomment.com/article/a-quel-age-dois-je-steriliser-mon-chat-1591.html</a></p>
+        <br>
+        <p class="linktexts" id=""><h1>Quels</h1>></p>
+        <br>
+        <p class="linktexts" id="">Quels sont les chats les plus affectueux: <a class="linkpage" href="https://animaux.toutcomment.com/article/quels-sont-les-chats-les-plus-affectueux-6380.html">https://animaux.toutcomment.com/article/quels-sont-les-chats-les-plus-affectueux-6380.html</a></p>
+        <p class="linktexts" id="">Quels sont les meilleurs jouets pour les chats: <a class="linkpage" href="https://animaux.toutcomment.com/article/quels-sont-les-meilleurs-jouets-pour-les-chats-5115.html">https://animaux.toutcomment.com/article/quels-sont-les-meilleurs-jouets-pour-les-chats-5115.html</a></p>
+        <p class="linktexts" id="">Quels sont les chats qui perdent le moins de poils: <a class="linkpage" href="https://animaux.toutcomment.com/article/quels-sont-les-chats-qui-perdent-le-moins-de-poils-7021.html">https://animaux.toutcomment.com/article/quels-sont-les-chats-qui-perdent-le-moins-de-poils-7021.html</a></p>
+        <p class="linktexts" id="">Quels sont les aliments mauvais pour le chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/quels-sont-les-aliments-mauvais-pour-le-chat-11398.html">https://animaux.toutcomment.com/article/quels-sont-les-aliments-mauvais-pour-le-chat-11398.html</a></p>
+        <p class="linktexts" id="">Quels sont les noms les plus drôles pour les chats: <a class="linkpage" href="https://animaux.toutcomment.com/article/quels-sont-les-noms-les-plus-droles-pour-les-chats-12396.html">https://animaux.toutcomment.com/article/quels-sont-les-noms-les-plus-droles-pour-les-chats-12396.html</a></p>
+        <p class="linktexts" id="">Quels sont les chats les plus calmes: <a class="linkpage" href="https://animaux.toutcomment.com/article/quels-sont-les-chats-les-plus-calmes-7096.html">https://animaux.toutcomment.com/article/quels-sont-les-chats-les-plus-calmes-7096.html</a></p>
+        <br>
+        <p class="linktexts" id=""><h1>Que</h1></p>
+        <br>
+        <p class="linktexts" id="">Que faire si mon chat a des vers: <a class="linkpage" href="https://animaux.toutcomment.com/article/que-faire-si-mon-chat-a-des-vers-7556.html">https://animaux.toutcomment.com/article/que-faire-si-mon-chat-a-des-vers-7556.html</a></p>
+        <p class="linktexts" id="">Que faire quand un chat boite: <a class="linkpage" href="https://animaux.toutcomment.com/article/que-faire-quand-un-chat-boite-8139.html">https://animaux.toutcomment.com/article/que-faire-quand-un-chat-boite-8139.html</a></p>
+        <p class="linktexts" id="">Que faire si mon chat a la diarrhée: <a class="linkpage" href="https://animaux.toutcomment.com/article/que-faire-si-mon-chat-a-la-diarrhee-3707.html">https://animaux.toutcomment.com/article/que-faire-si-mon-chat-a-la-diarrhee-3707.html</a></p>
+        <p class="linktexts" id="">Que faire si votre chat ne veut pas manger: <a class="linkpage" href="https://animaux.toutcomment.com/article/que-faire-si-votre-chat-ne-veut-pas-manger-2191.html">https://animaux.toutcomment.com/article/que-faire-si-votre-chat-ne-veut-pas-manger-2191.html</a></p>
+        <p class="linktexts" id="">Que faire de mon chat pendant les vacances: <a class="linkpage" href="https://animaux.toutcomment.com/article/que-faire-de-mon-chat-pendant-les-vacances-7230.html">https://animaux.toutcomment.com/article/que-faire-de-mon-chat-pendant-les-vacances-7230.html</a></p>
+        <br>
+        <p class="linktexts" id=""><h1>Pourquoi</h1></p>
+        <br>
+        <p class="linktexts" id="">Pourquoi les chats bougent leurs oreilles: <a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-les-chats-bougent-leurs-oreilles-11869.html">https://animaux.toutcomment.com/article/pourquoi-les-chats-bougent-leurs-oreilles-11869.html</a></p>
+        <p class="linktexts" id="">Pourquoi les chats grossissent-ils leur queue: <a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-les-chats-grossissent-ils-leur-queue-7924.html">https://animaux.toutcomment.com/article/pourquoi-les-chats-grossissent-ils-leur-queue-7924.html</a></p>
+        <p class="linktexts" id="">Pourquoi les chats patounent: <a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-les-chats-patounent-4945.html">https://animaux.toutcomment.com/article/pourquoi-les-chats-patounent-4945.html</a></p>
+        <p class="linktexts" id="">Pourquoi les chats ont des moustaches: <a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-les-chats-ont-des-moustaches-11634.html">https://animaux.toutcomment.com/article/pourquoi-les-chats-ont-des-moustaches-11634.html</a></p>
+        <p class="linktexts" id="">Pourquoi les chats lèchent-ils: <a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-les-chats-lechent-ils-11030.html">https://animaux.toutcomment.com/article/pourquoi-les-chats-lechent-ils-11030.html</a></p>
+        <p class="linktexts" id="">Pourquoi les chats remuent la queue: <a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-les-chats-remuent-la-queue-11374.html">https://animaux.toutcomment.com/article/pourquoi-les-chats-remuent-la-queue-11374.html</a></p>
+        <p class="linktexts" id="">Pourquoi les chats ronronnent-ils: <a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-les-chats-ronronnent-ils-4992.html">https://animaux.toutcomment.com/article/pourquoi-les-chats-ronronnent-ils-4992.html</a></p>
+        <p class="linktexts" id="">Pourquoi les chats aiment les cartons:<a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-les-chats-aiment-les-cartons-7577.html">https://animaux.toutcomment.com/article/pourquoi-les-chats-aiment-les-cartons-7577.html</a></p>
+        <p class="linktexts" id="">Pourquoi les chats dorment sur nous: <a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-les-chats-dorment-sur-nous-11777.html">https://animaux.toutcomment.com/article/pourquoi-les-chats-dorment-sur-nous-11777.html</a></p>
+        <p class="linktexts" id="">Pourquoi les chats mangent-ils de l'herbe ?: <a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-les-chats-mangent-ils-de-l-herbe-13187.html">https://animaux.toutcomment.com/article/pourquoi-les-chats-mangent-ils-de-l-herbe-13187.html</a></p>
+        <p class="linktexts" id="">Pourquoi les chats ne peuvent pas manger de sucre: <a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-les-chats-ne-peuvent-pas-manger-de-sucre-8860.html">https://animaux.toutcomment.com/article/pourquoi-les-chats-ne-peuvent-pas-manger-de-sucre-8860.html</a></p>
+        <p class="linktexts" id="">Pourquoi mon chat vomit: <a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-mon-chat-vomit-11974.html">https://animaux.toutcomment.com/article/pourquoi-mon-chat-vomit-11974.html</a></p>
+        <p class="linktexts" id="">Pourquoi mon chat se cache t'il ?: <a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-mon-chat-se-cache-t-il-12690.html">https://animaux.toutcomment.com/article/pourquoi-mon-chat-se-cache-t-il-12690.html</a></p>
+        <p class="linktexts" id="">Pourquoi mon chat miaule beaucoup: <a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-mon-chat-miaule-beaucoup-2441.html">https://animaux.toutcomment.com/article/pourquoi-mon-chat-miaule-beaucoup-2441.html</a></p>
+        <p class="linktexts" id="">Pourquoi mon chat ne mange pas: <a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-mon-chat-ne-mange-pas-11730.html">https://animaux.toutcomment.com/article/pourquoi-mon-chat-ne-mange-pas-11730.html</a></p>
+        <p class="linktexts" id="">Pourquoi mon chat tremble-t-il ?: <a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-mon-chat-tremble-t-il-4765.html">https://animaux.toutcomment.com/article/pourquoi-mon-chat-tremble-t-il-4765.html</a></p>
+        <p class="linktexts" id="">Pourquoi mon chat à des renvois: <a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-mon-chat-a-des-renvois-13311.html">https://animaux.toutcomment.com/article/pourquoi-mon-chat-a-des-renvois-13311.html</a></p>
+        <p class="linktexts" id="">Pourquoi un chat ne peut pas manger du poisson: <a class="linkpage" href="https://animaux.toutcomment.com/article/pourquoi-un-chat-ne-peut-pas-manger-du-poisson-9437.html">https://animaux.toutcomment.com/article/pourquoi-un-chat-ne-peut-pas-manger-du-poisson-9437.html</a></p>
+        <br>
+        <p class="linktexts" id=""><h1>Quelles</h1></p>
+        <br>
+        <p class="linktexts" id="">Quelles plantes sont toxiques pour les chats: <a class="linkpage" href="https://animaux.toutcomment.com/article/quelles-plantes-sont-toxiques-pour-les-chats-2874.html">https://animaux.toutcomment.com/article/quelles-plantes-sont-toxiques-pour-les-chats-2874.html</a></p>
+        <p class="linktexts" id="">Quelles sont les maladies les plus communes chez les chats domestiques: <a class="linkpage" href="https://animaux.toutcomment.com/article/quelles-sont-les-maladies-les-plus-communes-chez-les-chats-domestiques-1112.html">https://animaux.toutcomment.com/article/quelles-sont-les-maladies-les-plus-communes-chez-les-chats-domestiques-1112.html</a></p>
+        <p class="linktexts" id="">Quelle proportion doit manger mon chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/quelle-proportion-doit-manger-mon-chat-2056.html">https://animaux.toutcomment.com/article/quelle-proportion-doit-manger-mon-chat-2056.html</a></p>
+        <p class="linktexts" id="">Quelle alimentation pour un chat diabétique ?: <a class="linkpage" href="https://animaux.toutcomment.com/article/quelle-alimentation-pour-un-chat-diabetique-11753.html">https://animaux.toutcomment.com/article/quelle-alimentation-pour-un-chat-diabetique-11753.html</a></p>
+        <p class="linktexts" id="">Quelles maladies un chat peut-il me transmettre: <a class="linkpage" href="https://animaux.toutcomment.com/article/quelles-maladies-un-chat-peut-il-me-transmettre-2641.html">https://animaux.toutcomment.com/article/quelles-maladies-un-chat-peut-il-me-transmettre-2641.html</a></p>
+        <br>
+        <p class="linktexts" id=""><h1>Quand</h1>></p>
+        <br>
+        <p class="linktexts" id="">Quand laver son chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/quand-laver-son-chat-2755.html">https://animaux.toutcomment.com/article/quand-laver-son-chat-2755.html</a></p>
+        <p class="linktexts" id="">Quand vermifuger un chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/quand-vermifuger-un-chat-5144.html">https://animaux.toutcomment.com/article/quand-vermifuger-un-chat-5144.html</a></p>
+        <p class="linktexts" id="">Quand emmener mon chat chez le vétérinaire: <a class="linkpage" href="https://animaux.toutcomment.com/article/quand-emmener-mon-chat-chez-le-veterinaire-12718.html">https://animaux.toutcomment.com/article/quand-emmener-mon-chat-chez-le-veterinaire-12718.html</a></p>
+        <p class="linktexts" id="">Quand a lieu la saison des amours chez les chats: <a class="linkpage" href="https://animaux.toutcomment.com/article/quand-a-lieu-la-saison-des-amours-chez-les-chats-6532.html">https://animaux.toutcomment.com/article/quand-a-lieu-la-saison-des-amours-chez-les-chats-6532.html</a></p>
+        <br>
+        <p class="linktexts" id=""><h1>Remèdes</h1></p>
+        <br>
+        <p class="linktexts" id="">Remèdes naturels contre la gale chez le chats: <a class="linkpage" href="https://animaux.toutcomment.com/article/remedes-naturels-contre-la-gale-chez-le-chats-12711.html">https://animaux.toutcomment.com/article/remedes-naturels-contre-la-gale-chez-le-chats-12711.html</a></p>
+        <p class="linktexts" id="">Remèdes maison pour déparasiter les chats: <a class="linkpage" href="https://animaux.toutcomment.com/article/remedes-maison-pour-deparasiter-les-chats-3347.html">https://animaux.toutcomment.com/article/remedes-maison-pour-deparasiter-les-chats-3347.html</a></p>
+        <br>
+        <p class="linktexts" id=""><h1>Combien</h1></p>
+        <br>
+        <p class="linktexts" id="">Combien de chatons a une chatte par portée: <a class="linkpage" href="https://animaux.toutcomment.com/article/combien-de-chatons-a-une-chatte-par-portee-13201.html#:~:text=En%20moyenne%2C%20une%20port%C3%A9e%20comprend%20entre%203%20et,grossesse%20%3A%20on%20d%C3%A9nombre%20en%20moyenne%204%20chatons.">https://animaux.toutcomment.com/article/combien-de-chatons-a-une-chatte-par-portee-13201.html#:~:text=En%20moyenne%2C%20une%20port%C3%A9e%20comprend%20entre%203%20et,grossesse%20%3A%20on%20d%C3%A9nombre%20en%20moyenne%204%20chatons.</a></p>
+        <p class="linktexts" id="">Combien de temps dure la grossesse d'une chatte: <a class="linkpage" href="https://animaux.toutcomment.com/article/combien-de-temps-dure-la-grossesse-d-une-chatte-4125.html">https://animaux.toutcomment.com/article/combien-de-temps-dure-la-grossesse-d-une-chatte-4125.html</a></p>
+        <p class="linktexts" id="">Combien d'années peut vivre un chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/combien-d-annees-peut-vivre-un-chat-4573.html">https://animaux.toutcomment.com/article/combien-d-annees-peut-vivre-un-chat-4573.html</a></p>
+        <br>
+        <p class="linktexts" id="unsorted"><h1>Non classé</h1></p>
+        <br>
+        <p class="linktexts" id="">La signification des postures du chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/la-signification-des-postures-du-chat-11391.html">https://animaux.toutcomment.com/article/la-signification-des-postures-du-chat-11391.html</a></p>
+        <p class="linktexts" id="">Le collier à clochette est-il mauvais pour votre chat ?: <a class="linkpage" href="https://animaux.toutcomment.com/article/le-collier-a-clochette-est-il-mauvais-pour-votre-chat-5456.html">https://animaux.toutcomment.com/article/le-collier-a-clochette-est-il-mauvais-pour-votre-chat-5456.html</a></p>
+        <p class="linktexts" id="">Les symptômes de la grossesse nerveuse chez le chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/comment-sont-les-chats-en-chaleur-2727.html">https://animaux.toutcomment.com/article/comment-sont-les-chats-en-chaleur-2727.html</a></p>
+        <p class="linktexts" id="">Où peut se cacher un chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/ou-peut-se-cacher-un-chat-13095.html">https://animaux.toutcomment.com/article/ou-peut-se-cacher-un-chat-13095.html</a></p
+        <p class="linktexts" id="">Est-il bon de dormir avec son chat ?: <a class="linkpage" href="https://animaux.toutcomment.com/article/est-il-bon-de-dormir-avec-son-chat-11855.html">https://animaux.toutcomment.com/article/est-il-bon-de-dormir-avec-son-chat-11855.html</a></p>
+        <p class="linktexts" id="">Traitement naturel contre la teigne chez le chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/traitement-naturel-contre-la-teigne-chez-le-chat-11910.html">https://animaux.toutcomment.com/article/traitement-naturel-contre-la-teigne-chez-le-chat-11910.html</a></p>
+        <p class="linktexts" id="">Fièvre chez le chat - Symptômes et causes: <a class="linkpage" href="https://animaux.toutcomment.com/article/fievre-chez-le-chat-symptomes-et-causes-11776.html">https://animaux.toutcomment.com/article/fievre-chez-le-chat-symptomes-et-causes-11776.html</a></p>
+        <p class="linktexts" id="">Symptômes de la leishmaniose chez les chats: <a class="linkpage" href="https://animaux.toutcomment.com/article/symptomes-de-la-leishmaniose-chez-les-chats-13230.html">https://animaux.toutcomment.com/article/symptomes-de-la-leishmaniose-chez-les-chats-13230.html</a></p>
+        <p class="linktexts" id="">7 aliments qu'il ne faut pas donner aux chats: <a class="linkpage" href="https://animaux.toutcomment.com/article/7-aliments-qu-il-ne-faut-pas-donner-aux-chats-9521.html">https://animaux.toutcomment.com/article/7-aliments-qu-il-ne-faut-pas-donner-aux-chats-9521.html</a></p>
+        <p class="linktexts" id="">6 conseils pour éduquer votre chat: <a class="linkpage" href="https://animaux.toutcomment.com/article/6-conseils-pour-eduquer-votre-chat-11743.html">https://animaux.toutcomment.com/article/6-conseils-pour-eduquer-votre-chat-11743.html</a></p>
+        <br>
+        <p class="linktexts" id="findcat"><span id="findit"></span><h2>Retrouver mon chat</h2></p>
+        <br>
+        <img class="catinatub" src="data:image/webp;base64,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"/>
+        <br>
+        <p class="linktexts" id="findcat">Pour retrouver sont chat à l'aide de sont téléphone: <a class="linkpage" href="https://www.bing.com/search?FORM=U523DF&PC=U523&q=collier+pour+chat+avec+trasseur">https://www.bing.com/search?FORM=U523DF&PC=U523&q=collier+pour+chat+avec+trasseur</a></p>
+        <p class="linktexts" id="findcatamazon">Sur Amazon: <a class="linkpage" href="https://www.amazon.fr/s?k=collier+traceur+pour+chat&i=pets&__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&ref=nb_sb_noss">https://www.amazon.fr/s?k=collier+traceur+pour+chat&i=pets&__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&ref=nb_sb_noss</a></p>
+        <p class="linktexts" id="findcatbangood">Sur Bangood: <a class="linkpage" href="https://fr.banggood.com/search/collier-traceur-pour-chat.html?from=nav">https://fr.banggood.com/search/collier-traceur-pour-chat.html?from=nav</a></p>
+        <p class="linktexts" id="findcatVinted">Sur Vinted: <a class="linkpage" href="https://www.vinted.fr/vetements?search_text=traceur%20pour%20chat">https://www.vinted.fr/vetements?search_text=traceur%20pour%20chat</a></p>
+        <p class="linktexts" id="idealo">Sur Idealo: <a class="linkpage" href="https://www.idealo.fr/liste/116566797/collier-chat-traceur.html?utm_source=bing&utm_medium=cpc&utm_campaign=Comparateur%20de%20prix_27&utm_term=collier%20chat%20traceur&utm_content=collier%20chat%20traceur%20broad">Collier chat traceur</a></p>
+        <p class="linktexts" id="decideur">Sur Décideur: <a class="linkpage" href="https://www.decideur.co/collier-gps-chat/#:~:text=%20Les%2010%20meilleurs%20colliers%20GPS%20pour%20chat,ayant%20au%20minimum%204%2C5%20kg%2C%20Tractive...%20More%20">Les 10 meilleurs colliers GPS pour chat</a></p>
+        
+
+
+        <p>&copy;Créé par henry Letellier</p>
+        <p><a class="a" href="https://github.com/HenraL" target="_blank" rel="noreferrer" rel="noopener"><span id="tag" width="30" height="30"> &copy; Created by Henry Letellier <img id="tagImg" src="https://github.com/HenraL/picture-for-promoting-accounts/blob/master/files/Profil%20logos/Henry%20Letellier/all%20social%20media%20(youtube%20and%20linkedin%20excluded)/galaxy%20croped%20big_128x128px.png?raw=true"/><span id="dot">.</span></span></a></p>
     </body>
 </html>
